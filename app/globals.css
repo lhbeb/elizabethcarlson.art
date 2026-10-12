@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 97%;
+    --foreground: 0 6% 29%;
+    --paper: #f7f7f7;
+    --paper-bright: #ffffff;
+    --paper-muted: #efeded;
+    --ink: #4b4747;
+    --ink-soft: #6a6464;
+    --muted-text: #5f5a5a;
+    --line: #dedada;
+    --accent: #b84155;
+    --cobalt: #4b4747;
+    --coral: #b84155;
+  }
+
+  * { @apply border-[var(--line)]; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font-family: Futura, 'Futura PT', 'Trebuchet MS', sans-serif; @apply antialiased; }
+  h1, h2, h3, h4, .font-display { font-family: Futura, 'Futura PT', 'Trebuchet MS', sans-serif; font-weight: 400; letter-spacing: .03em; }
+  p, input, button, a { font-family: 'Nunito Sans', Futura, sans-serif; }
+  ::-webkit-scrollbar { width: 7px; height: 7px; }
+  ::-webkit-scrollbar-track { background: var(--paper); }
+  ::-webkit-scrollbar-thumb { background: #c2bdbd; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--ink); }
+  ::selection { background: rgba(184,65,85,.16); color: var(--ink); }
+}
+
+@layer components {
+  .btn-primary { @apply inline-flex items-center justify-center gap-2 px-6 py-3 transition-colors; background: var(--ink); color: white; }
+  .btn-primary:hover { background: var(--accent); }
+  .btn-ghost { @apply inline-flex items-center justify-center gap-2 px-6 py-3 transition-colors; border: 1px solid var(--ink); color: var(--ink); }
+  .btn-ghost:hover { background: var(--ink); color: white; }
+  .card-surface { background: var(--paper-bright); border: 1px solid var(--line); }
+  .section-title { @apply text-3xl sm:text-4xl; color: var(--ink); }
+  .tag { @apply inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-semibold uppercase; }
+  .tag-free, .tag-premium, .tag-dark { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+  .mono { font-family: 'Nunito Sans', sans-serif; }
+  .article-copy { max-width: 46rem; color: var(--ink); }
+  .article-copy p { margin-top: 1.25rem; color: var(--muted-text); font-size: 1.08rem; line-height: 1.85; }
+  .article-copy h2 { margin-top: 3rem; color: var(--ink); font-size: clamp(1.45rem, 3vw, 2rem); line-height: 1.2; font-weight: 400; }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .text-gradient { color: var(--ink); }
+  .grid-bg { background-color: var(--paper-muted); }
+  .scanline { background: transparent; }
+}
