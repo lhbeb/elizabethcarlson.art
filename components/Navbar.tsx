@@ -14,7 +14,7 @@ export default function Navbar() {
         { href: '/contact', label: 'Contact' },
     ]
 
-    return <header className="absolute inset-x-0 top-0 z-50 text-[var(--ink)]">
+    return <header className="absolute inset-x-0 top-0 z-50 bg-gradient-to-b from-white/95 via-white/65 to-transparent text-[var(--ink)]">
         <div className="mx-auto flex items-start justify-between px-7 py-7 sm:px-10 sm:py-9 lg:px-14">
             <Link href="/" aria-label="Metz Benedek home" className="block font-display text-xl font-semibold uppercase tracking-[.12em] sm:text-2xl">METZ BENEDEK</Link>
             <div className="flex items-center gap-6">
