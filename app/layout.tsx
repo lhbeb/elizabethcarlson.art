@@ -6,8 +6,8 @@ import Footer from '@/components/Footer'
 export const metadata: Metadata = {
     metadataBase: new URL('https://www.metzbenedek.art'),
     title: 'Metz Benedek | Visual Artist',
-    description: 'Metz Benedek is a Polish artist based in Jakarta, Indonesia, inspired by Southeast Asian light, color, and atmosphere.',
-    keywords: 'Metz Benedek, Polish artist in Jakarta, Bali inspired art, Southeast Asian art, paintings, drawings, prints, contemporary art',
+    description: 'Metz Benedek is a Polish figurative artist based in Jakarta, known for fragmented portraits in oil, acrylic and pencil.',
+    keywords: 'Metz Benedek, Polish figurative artist, fragmented portraits, contemporary portrait painting, oil acrylic pencil, paintings, prints',
     alternates: { canonical: '/' },
     icons: { icon: '/favicon.svg', shortcut: '/favicon.svg', apple: '/favicon.svg' },
     openGraph: {
