@@ -4,7 +4,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://www.lucy-pass.com'),
+    metadataBase: new URL('https://www.metzbenedek.art'),
     title: 'Metz Benedek | Visual Artist',
     description: 'Metz Benedek, also known as Csornai-Metz Benedek, is a visual artist based in Jakarta, Indonesia.',
     keywords: 'Metz Benedek, Csornai-Metz Benedek, Jakarta artist, paintings, drawings, prints, contemporary art',

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { getLucyShopProducts, isSoldOut } from '@/lib/lucyShop'
 
 export const revalidate = 60
@@ -22,7 +23,7 @@ export default async function CollectionsPage() {
                 const soldOut = isSoldOut(product)
                 return <article key={product.id} className="group">
                     <div className="relative aspect-[.78] overflow-hidden bg-white">
-                        <img src={product.thumbnail_url || '/lucy/long-distance.jpg'} alt={product.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
+                        <Image src={product.thumbnail_url || '/lucy/long-distance.jpg'} alt={product.title} fill sizes="(min-width: 1024px) 31vw, (min-width: 640px) 46vw, 100vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
                         {soldOut && <span className="absolute left-4 top-4 bg-[var(--ink)] px-3 py-1 text-xs uppercase tracking-[.14em] text-white">Sold out</span>}
                     </div>
                     <div className="mt-5 flex items-start justify-between gap-4"><h2 className="text-xl leading-tight">{product.title}</h2><span className="shrink-0 text-sm">£{Number(product.price).toFixed(2)}</span></div>

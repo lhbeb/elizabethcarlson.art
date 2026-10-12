@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        unoptimized: true,
         qualities: [75, 90, 100],
         remotePatterns: [
             {
@@ -15,6 +14,18 @@ const nextConfig = {
                 hostname: '**.supabase.co',
                 port: '',
                 pathname: '/storage/v1/object/public/**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'images.squarespace-cdn.com',
+                port: '',
+                pathname: '/**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'static1.squarespace.com',
+                port: '',
+                pathname: '/**',
             },
         ],
     },

@@ -19,7 +19,7 @@ export default function Navbar() {
             <Link href="/" aria-label="Metz Benedek home" className="block font-display text-xl font-semibold uppercase tracking-[.12em] sm:text-2xl">METZ BENEDEK</Link>
             <div className="flex items-center gap-6">
                 <nav className="hidden items-center gap-7 lg:flex">{links.map(link => <Link key={link.label} href={link.href} className="text-sm uppercase tracking-[.14em] transition-opacity hover:opacity-60">{link.label}</Link>)}</nav>
-                <Link href="/cart" aria-label="View cart" className="transition-opacity hover:opacity-60"><ShoppingBag size={25} strokeWidth={1.3} /></Link>
+                <a href="https://buymeacoffee.com/csornaimetzbenedek/extras" target="_blank" rel="noopener noreferrer" aria-label="Open Buy Me a Coffee shop" className="transition-opacity hover:opacity-60"><ShoppingBag size={25} strokeWidth={1.3} /></a>
                 <button type="button" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)} className="transition-opacity hover:opacity-60">{menuOpen ? <X size={29} strokeWidth={1.2} /> : <Plus size={31} strokeWidth={1.2} />}</button>
             </div>
         </div>
