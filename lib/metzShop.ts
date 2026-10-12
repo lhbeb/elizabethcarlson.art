@@ -1,12 +1,12 @@
 import { supabase, type Product } from '@/lib/supabase'
 
-export async function getLucyShopProducts(): Promise<Product[]> {
+export async function getMetzShopProducts(): Promise<Product[]> {
     const { data, error } = await supabase.from('products').select('*').order('created_at', { ascending: false })
     if (error) {
-        console.error('Could not load Lucy Pass shop products:', error.message)
+        console.error('Could not load Metz Benedek shop products:', error.message)
         return []
     }
-    return (data || []).filter(product => product.file_url?.startsWith('https://www.lucy-pass.com/shop/p/'))
+    return (data || []).filter(product => product.file_url?.startsWith('https://www.metzbenedek.art/collections/'))
 }
 
 export function isSoldOut(product: Product) {
