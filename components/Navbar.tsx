@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { ShoppingBag, Plus, X } from 'lucide-react'
 import { useState } from 'react'
 
@@ -14,9 +15,9 @@ export default function Navbar() {
         { href: '/contact', label: 'Contact' },
     ]
 
-    return <header className="absolute inset-x-0 top-0 z-50 bg-gradient-to-b from-white/95 via-white/65 to-transparent text-[var(--ink)]">
+    return <header className="absolute inset-x-0 top-0 z-50 bg-gradient-to-b from-white/95 via-white/65 via-[68%] to-transparent pb-5 text-[var(--ink)]">
         <div className="mx-auto flex items-start justify-between px-7 py-7 sm:px-10 sm:py-9 lg:px-14">
-            <Link href="/" aria-label="Metz Benedek home" className="block font-display text-xl font-semibold uppercase tracking-[.12em] sm:text-2xl">METZ BENEDEK</Link>
+            <Link href="/" aria-label="Metz Benedek home" className="block w-44 sm:w-56"><Image src="/metz%20logo.svg" alt="Metz Benedek" width={551} height={152} priority className="h-auto w-full" /></Link>
             <div className="flex items-center gap-6">
                 <nav className="hidden items-center gap-7 lg:flex">{links.map(link => <Link key={link.label} href={link.href} className="text-sm uppercase tracking-[.14em] transition-opacity hover:opacity-60">{link.label}</Link>)}</nav>
                 <a href="https://buymeacoffee.com/csornaimetzbenedek/extras" target="_blank" rel="noopener noreferrer" aria-label="Open Buy Me a Coffee shop" className="transition-opacity hover:opacity-60"><ShoppingBag size={25} strokeWidth={1.3} /></a>

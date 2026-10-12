@@ -6,16 +6,16 @@ import Footer from '@/components/Footer'
 export const metadata: Metadata = {
     metadataBase: new URL('https://www.metzbenedek.art'),
     title: 'Metz Benedek | Visual Artist',
-    description: 'Metz Benedek, also known as Csornai-Metz Benedek, is a visual artist based in Jakarta, Indonesia.',
-    keywords: 'Metz Benedek, Csornai-Metz Benedek, Jakarta artist, paintings, drawings, prints, contemporary art',
+    description: 'Metz Benedek is a Polish artist based in Jakarta, Indonesia, inspired by Southeast Asian light, color, and atmosphere.',
+    keywords: 'Metz Benedek, Polish artist in Jakarta, Bali inspired art, Southeast Asian art, paintings, drawings, prints, contemporary art',
     alternates: { canonical: '/' },
     icons: { icon: '/favicon.svg', shortcut: '/favicon.svg', apple: '/favicon.svg' },
     openGraph: {
         title: 'Metz Benedek | Visual Artist',
-        description: 'Original paintings, drawings and archival quality prints by Metz Benedek.',
+        description: 'Original paintings, drawings and archival quality prints by Metz Benedek, a Polish artist based in Jakarta.',
         url: '/', siteName: 'Metz Benedek', type: 'website',
     },
-    twitter: { card: 'summary', title: 'Metz Benedek | Visual Artist', description: 'Original paintings, drawings and archival quality prints by Metz Benedek.' },
+    twitter: { card: 'summary', title: 'Metz Benedek | Visual Artist', description: 'Original paintings, drawings and archival quality prints by Metz Benedek, a Polish artist based in Jakarta.' },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { supabase, type Product } from '@/lib/supabase'
-import { isSoldOut } from '@/lib/lucyShop'
+import { isSoldOut, shouldOptimizeImage } from '@/lib/lucyShop'
 
 export const revalidate = 60
 
@@ -30,7 +30,7 @@ export default async function ArtworkPage({ params }: Props) {
         <Link href="/collections" className="text-xs uppercase tracking-[.16em] text-[var(--muted-text)] hover:text-[var(--ink)]">Back to shop</Link>
         <div className="mt-10 grid gap-12 lg:grid-cols-[1.1fr_.9fr] lg:gap-24">
             <div className="relative aspect-[.9] overflow-hidden bg-white">
-                <Image src={product.thumbnail_url || '/lucy/long-distance.jpg'} alt={product.title} fill priority sizes="(min-width: 1024px) 55vw, 100vw" className="object-contain" />
+                <Image src={product.thumbnail_url || '/lucy/long-distance.jpg'} alt={product.title} fill priority unoptimized={!shouldOptimizeImage(product.thumbnail_url)} sizes="(min-width: 1024px) 55vw, 100vw" className="object-contain" />
             </div>
             <div className="max-w-xl self-center">
                 <p className="text-xs uppercase tracking-[.2em] text-[var(--ink-soft)]">Metz Benedek · Artwork</p>

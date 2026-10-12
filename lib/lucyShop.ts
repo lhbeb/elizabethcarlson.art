@@ -12,3 +12,12 @@ export async function getLucyShopProducts(): Promise<Product[]> {
 export function isSoldOut(product: Product) {
     return /\bSold out\./i.test(product.description || '')
 }
+
+export function shouldOptimizeImage(url: string | null) {
+    if (!url) return true
+    try {
+        return new URL(url).hostname.endsWith('.supabase.co')
+    } catch {
+        return true
+    }
+}
