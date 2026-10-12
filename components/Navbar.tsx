@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { ShoppingBag, Plus, X } from 'lucide-react'
 import { useState } from 'react'
 
@@ -17,7 +16,7 @@ export default function Navbar() {
 
     return <header className="absolute inset-x-0 top-0 z-50 text-[var(--ink)]">
         <div className="mx-auto flex items-start justify-between px-7 py-7 sm:px-10 sm:py-9 lg:px-14">
-            <Link href="/" aria-label="Metz Benedek home" className="relative block w-40 sm:w-52"><Image src="/lucy/logo.png" alt="Metz Benedek" width={837} height={152} priority className="h-auto w-full" /></Link>
+            <Link href="/" aria-label="Metz Benedek home" className="block font-display text-xl font-semibold uppercase tracking-[.12em] sm:text-2xl">METZ BENEDEK</Link>
             <div className="flex items-center gap-6">
                 <nav className="hidden items-center gap-7 lg:flex">{links.map(link => <Link key={link.label} href={link.href} className="text-sm uppercase tracking-[.14em] transition-opacity hover:opacity-60">{link.label}</Link>)}</nav>
                 <Link href="/cart" aria-label="View cart" className="transition-opacity hover:opacity-60"><ShoppingBag size={25} strokeWidth={1.3} /></Link>
