@@ -26,7 +26,7 @@ export default async function CollectionsPage() {
                         <Image src={product.thumbnail_url || '/metz-art/long-distance.jpg'} alt={product.title} fill unoptimized={!shouldOptimizeImage(product.thumbnail_url)} sizes="(min-width: 1024px) 31vw, (min-width: 640px) 46vw, 100vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
                         {soldOut && <span className="absolute left-4 top-4 bg-[var(--ink)] px-3 py-1 text-xs uppercase tracking-[.14em] text-white">Sold out</span>}
                     </div>
-                    <div className="mt-5 flex items-start justify-between gap-4"><h2 className="text-xl leading-tight">{product.title}</h2><span className="shrink-0 text-sm">£{Number(product.price).toFixed(2)}</span></div>
+                    <div className="mt-5 flex items-start justify-between gap-4"><h2 className="text-xl leading-tight">{product.title}</h2>{Number(product.price) > 0 && <span className="shrink-0 text-sm">£{Number(product.price).toFixed(2)}</span>}</div>
                     <p className="mt-3 line-clamp-3 text-sm leading-6 text-[var(--muted-text)]">{(product.description || '').split('\n')[0]}</p>
                     {product.file_url && <a href={product.file_url} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block border-b border-[var(--ink)] pb-1 text-xs uppercase tracking-[.14em] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]">View listing</a>}
                 </article>

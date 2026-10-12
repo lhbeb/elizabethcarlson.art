@@ -35,7 +35,7 @@ export default async function ArtworkPage({ params }: Props) {
             <div className="max-w-xl self-center">
                 <p className="text-xs uppercase tracking-[.2em] text-[var(--ink-soft)]">Metz Benedek · Artwork</p>
                 <h1 className="mt-5 text-4xl leading-tight sm:text-5xl">{product.title}</h1>
-                <p className="mt-6 text-2xl">£{Number(product.price).toFixed(2)}</p>
+                {Number(product.price) > 0 && <p className="mt-6 text-2xl">£{Number(product.price).toFixed(2)}</p>}
                 {soldOut && <p className="mt-5 inline-block bg-[var(--ink)] px-3 py-1 text-xs uppercase tracking-[.14em] text-white">Sold out</p>}
                 <div className="mt-8 space-y-5 text-base leading-8 text-[var(--muted-text)]">{description.map((paragraph, index) => <p key={`${product.id}-${index}`}>{paragraph}</p>)}</div>
                 <a href="https://buymeacoffee.com/csornaimetzbenedek/extras" target="_blank" rel="noopener noreferrer" className="mt-9 inline-flex min-h-12 items-center justify-center bg-[var(--ink)] px-7 text-sm uppercase tracking-[.14em] text-white transition-colors hover:bg-[var(--accent)]">Visit the shop</a>
