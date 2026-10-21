@@ -16,11 +16,11 @@ export default function HeroSection() {
         const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
         if (motionQuery.matches) return
 
-        const rotate = window.setInterval(() => {
+        const rotate = window.setTimeout(() => {
             setActiveIndex(current => (current + 1) % artworks.length)
         }, 9000)
 
-        return () => window.clearInterval(rotate)
+        return () => window.clearTimeout(rotate)
     }, [activeIndex])
 
     return <section aria-label="A rotating selection of artworks by Metz Benedek" className="relative h-[clamp(29rem,68vw,54rem)] min-h-[460px] overflow-hidden bg-[#161415]">
