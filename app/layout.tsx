@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: 'Metz Benedek is a Polish figurative artist based in Jakarta, known for fragmented portraits in oil, acrylic and pencil.',
     keywords: 'Metz Benedek, Polish figurative artist, fragmented portraits, contemporary portrait painting, oil acrylic pencil, paintings, prints',
     alternates: { canonical: '/' },
-    icons: { icon: '/favicon.svg', shortcut: '/favicon.svg', apple: '/favicon.svg' },
+    icons: { icon: '/metzfavicon.png', shortcut: '/metzfavicon.png', apple: '/metzfavicon.png' },
     openGraph: {
         title: 'Metz Benedek | Visual Artist',
         description: 'Original paintings, drawings and archival quality prints by Metz Benedek, a Polish artist based in Jakarta.',
