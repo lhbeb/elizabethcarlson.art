@@ -38,7 +38,7 @@ export default function DemoCardCheckout({ productName, amount }: { productName:
                     <p className="mt-2 text-sm leading-relaxed text-[var(--muted-text)]">This was only a checkout preview for {productName}. No payment was processed and no order was created.</p>
                     <button type="button" onClick={close} className="mt-6 rounded-md bg-[var(--ink)] px-5 py-3 text-sm font-bold text-white hover:bg-[var(--cobalt)]">Done</button>
                 </div> : <>
-                    <p className="text-xs font-bold uppercase text-[var(--coral)]">Checkout preview · no charge</p>
+                    <p className="text-xs font-bold text-[var(--coral)]">Checkout preview · no charge</p>
                     <h2 id="demo-checkout-title" className="mt-2 pr-8 font-display text-2xl font-semibold text-[var(--ink)]">{productName}</h2>
                     <p className="mt-3 border-l-2 border-[var(--ochre)] pl-3 text-sm leading-relaxed text-[var(--muted-text)]">Demo only · ${amount.toFixed(2)} preview. No real payment will be processed. Use the test card number below; details stay in this browser and are discarded when you close this window.</p>
                     <form onSubmit={submit} className="mt-6 space-y-4">

@@ -188,17 +188,17 @@ export default function EditProductPage() {
                                 {productFile ? (
                                     <div className="text-[#2563eb] text-center">
                                         <Box size={24} className="mx-auto mb-1" />
-                                        <span className="text-[10px] uppercase font-bold text-gray-500">New File</span>
+                                        <span className="text-[10px] font-bold text-gray-500">New File</span>
                                     </div>
                                 ) : product.file_url ? (
                                     <div className="text-emerald-500 text-center">
                                         <CheckCircle size={24} className="mx-auto mb-1" />
-                                        <span className="text-[10px] uppercase font-bold text-gray-500">Uploaded</span>
+                                        <span className="text-[10px] font-bold text-gray-500">Uploaded</span>
                                     </div>
                                 ) : (
                                     <div className="text-gray-400 text-center">
                                         <Box size={24} className="mx-auto mb-1" />
-                                        <span className="text-[10px] uppercase font-bold">No file</span>
+                                        <span className="text-[10px] font-bold">No file</span>
                                     </div>
                                 )}
                             </div>

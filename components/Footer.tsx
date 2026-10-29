@@ -1,11 +1,12 @@
 import Link from 'next/link'
-import Image from 'next/image'
+import Wordmark from '@/components/Wordmark'
+import { BMC_URL, CONTACT_EMAIL, SITE_NAME } from '@/lib/site'
 
 export default function Footer() {
-    return <footer className="bg-[var(--paper)] px-8 pb-10 pt-8 sm:px-12 lg:px-16">
-        <div className="mx-auto flex max-w-[1320px] flex-col gap-8 border-t border-[var(--line)] pt-8 sm:flex-row sm:items-end sm:justify-between">
-            <div><Link href="/" aria-label="Metz Benedek home" className="block w-44"><Image src="/metz%20logo.svg" alt="Metz Benedek" width={551} height={152} className="h-auto w-full" /></Link><p className="mt-3 text-sm text-[var(--muted-text)]">© Copyright Metz Benedek · Jakarta, Indonesia</p></div>
-            <div><p className="mb-3 text-sm">Useful links</p><nav className="flex flex-wrap gap-x-5 gap-y-2 text-sm underline underline-offset-4"><Link href="/about">About</Link><Link href="/collections">Shop</Link><Link href="/terms">Artwork Use Terms</Link><Link href="/privacy">Privacy Policy</Link><Link href="/contact">Contact</Link></nav></div>
+    return <footer className="bg-[var(--paper)] px-6 pb-10 pt-16 sm:px-10">
+        <div className="mx-auto grid max-w-[1440px] gap-10 border-t border-[var(--line)] pt-10 sm:grid-cols-[1fr_auto] sm:items-end">
+            <div><Link href="/" aria-label={`${SITE_NAME} home`} className="text-2xl sm:text-3xl"><Wordmark /></Link><p className="mt-3 text-[var(--muted-text)]">3D artist. © {new Date().getFullYear()} {SITE_NAME}</p><a href={`mailto:${CONTACT_EMAIL}`} className="link-select mt-2 inline-block text-[var(--muted-text)]">{CONTACT_EMAIL}</a></div>
+            <nav className="flex flex-wrap gap-x-6 gap-y-2 text-[15px]"><Link href="/work">Work</Link><Link href="/about">About</Link><Link href="/collections">Shop</Link><Link href="/free-models">Free models</Link><Link href="/license">Asset license</Link><Link href="/terms">Terms</Link><Link href="/privacy">Privacy</Link><Link href="/contact">Contact</Link><a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="link-select">Buy me a coffee</a></nav>
         </div>
     </footer>
 }

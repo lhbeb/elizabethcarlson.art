@@ -1,22 +1,20 @@
 import Link from 'next/link'
-import { ArrowUpRight, Mail, MessageCircle, ShoppingBag } from 'lucide-react'
+import { ArrowUpRight, MessageCircle, ShoppingBag, Video } from 'lucide-react'
+import { BMC_URL } from '@/lib/site'
 
 export const metadata = {
-    title: 'Contact Metz Benedek',
-    description: 'Contact visual artist Metz Benedek about artwork, prints, or your order.',
+    title: 'Contact Elizabeth Carlson',
+    description: 'Contact 3D artist Elizabeth Carlson about 3D work, asset packs, private sessions, or your order.',
 }
-
-const creatorUrl = 'https://buymeacoffee.com/csornaimetzbenedek'
-const contactEmail = 'contact@metzbenedek.art'
 
 export default function ContactPage() {
     return <main className="min-h-screen">
-        <section className="border-b border-[var(--line)] bg-[var(--paper-bright)]"><div className="mx-auto max-w-5xl px-6 py-16 sm:py-20"><h1 className="max-w-3xl font-display text-3xl font-semibold leading-snug sm:text-4xl">Contact Metz Benedek</h1><p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--muted-text)]">For artwork questions, print details, or a note about the studio, email directly or send a message through Buy Me a Coffee.</p></div></section>
-        <section className="mx-auto grid max-w-5xl gap-5 px-6 py-14 sm:grid-cols-2 sm:py-20">
-            <a href={`mailto:${contactEmail}`} className="group border-t-2 border-[var(--line)] py-6 transition-colors hover:border-[var(--cobalt)]"><Mail size={22} className="mb-5 text-[var(--cobalt)]" /><h2 className="break-all font-display text-xl font-semibold group-hover:text-[var(--cobalt)]">{contactEmail}</h2><p className="mt-3 text-sm leading-relaxed text-[var(--muted-text)]">For questions about artworks, prints, or orders.</p><span className="mt-5 inline-flex items-center gap-2 text-sm font-bold">Send an email <ArrowUpRight size={15} /></span></a>
-            <a href={creatorUrl} target="_blank" rel="noopener noreferrer" className="group border-t-2 border-[var(--line)] py-6 transition-colors hover:border-[var(--cobalt)]"><MessageCircle size={22} className="mb-5 text-[var(--cobalt)]" /><h2 className="font-display text-xl font-semibold group-hover:text-[var(--cobalt)]">Buy Me a Coffee</h2><p className="mt-3 text-sm leading-relaxed text-[var(--muted-text)]">Visit the creator page to get in touch or support the studio.</p><span className="mt-5 inline-flex items-center gap-2 text-sm font-bold">Open creator page <ArrowUpRight size={15} /></span></a>
-            <a href="/collections" className="group border-t-2 border-[var(--line)] py-6 transition-colors hover:border-[var(--coral)]"><ShoppingBag size={22} className="mb-5 text-[var(--coral)]" /><h2 className="font-display text-xl font-semibold group-hover:text-[var(--coral)]">Visit the shop</h2><p className="mt-3 text-sm leading-relaxed text-[var(--muted-text)]">See current paintings, prints, and available work.</p><span className="mt-5 inline-flex items-center gap-2 text-sm font-bold">Browse artworks <ArrowUpRight size={15} /></span></a>
+        <section className="border-b border-[var(--line)] bg-[var(--paper-bright)]"><div className="mx-auto max-w-5xl px-6 pb-16 pt-40 sm:pb-20 sm:pt-44"><h1 className="max-w-3xl font-display text-3xl font-semibold leading-snug sm:text-4xl">Contact Elizabeth Carlson</h1><p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--muted-text)]">For questions about 3D work, asset packs, private sessions or an order, send a message through Buy Me a Coffee.</p></div></section>
+        <section className="mx-auto grid max-w-5xl gap-5 px-6 py-14 sm:grid-cols-3 sm:py-20">
+            <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="group border-t-2 border-[var(--line)] py-6 transition-colors hover:border-[var(--accent)]"><MessageCircle size={22} className="mb-5 text-[var(--accent)]" /><h2 className="font-display text-xl font-semibold group-hover:text-[var(--accent)]">Buy Me a Coffee</h2><p className="mt-3 text-sm leading-relaxed text-[var(--muted-text)]">Message me or support the studio from the creator page.</p><span className="mt-5 inline-flex items-center gap-2 text-sm font-bold">Open creator page <ArrowUpRight size={15} /></span></a>
+            <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="group border-t-2 border-[var(--line)] py-6 transition-colors hover:border-[var(--accent)]"><Video size={22} className="mb-5 text-[var(--accent)]" /><h2 className="font-display text-xl font-semibold group-hover:text-[var(--accent)]">Private 3D session</h2><p className="mt-3 text-sm leading-relaxed text-[var(--muted-text)]">Ask about a 4-hour 1:1 Zoom session to build a 3D scene together.</p><span className="mt-5 inline-flex items-center gap-2 text-sm font-bold">Ask about a session <ArrowUpRight size={15} /></span></a>
+            <Link href="/collections" className="group border-t-2 border-[var(--line)] py-6 transition-colors hover:border-[var(--accent)]"><ShoppingBag size={22} className="mb-5 text-[var(--accent)]" /><h2 className="font-display text-xl font-semibold group-hover:text-[var(--accent)]">Visit the shop</h2><p className="mt-3 text-sm leading-relaxed text-[var(--muted-text)]">See current 3D work and asset packs.</p><span className="mt-5 inline-flex items-center gap-2 text-sm font-bold">Browse the shop <ArrowUpRight size={15} /></span></Link>
         </section>
-        <div className="mx-auto max-w-5xl px-6 pb-16"><Link href="/about" className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--cobalt)] hover:underline">Meet Metz Benedek <ArrowUpRight size={15} /></Link></div>
+        <div className="mx-auto max-w-5xl px-6 pb-16"><Link href="/about" className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] hover:underline">Meet Elizabeth <ArrowUpRight size={15} /></Link></div>
     </main>
 }

@@ -82,7 +82,7 @@ export default function ManageProductsPage() {
                                     <div className="flex-1 min-w-0">
                                         <p className="font-semibold text-gray-900 truncate">{product.title}</p>
                                         <div className="flex items-center gap-2 mt-1">
-                                            <span className={`inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase ${isFree ? 'bg-[#2563eb]/15 text-[#2563eb]' : 'bg-amber-500/15 text-amber-600'}`}>
+                                            <span className={`inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full ${isFree ? 'bg-[#2563eb]/15 text-[#2563eb]' : 'bg-amber-500/15 text-amber-600'}`}>
                                                 {isFree ? <><Zap size={8} /> Free</> : <><Ticket size={8} /> ${product.price}</>}
                                             </span>
                                             <span className="text-xs text-gray-600">{new Date(product.created_at).toLocaleDateString()}</span>

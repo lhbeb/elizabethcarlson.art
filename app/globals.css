@@ -1,47 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/*
+  Clay studio palette. The page is the grey cyclorama a clay render sits on;
+  the accent is a cool cobalt selection outline inspired by viewport tooling.
+*/
 @layer base {
   :root {
-    --background: 0 0% 97%;
-    --foreground: 0 6% 29%;
-    --paper: #f7f7f7;
-    --paper-bright: #ffffff;
-    --paper-muted: #efeded;
-    --ink: #4b4747;
-    --ink-soft: #6a6464;
-    --muted-text: #5f5a5a;
-    --line: #dedada;
-    --accent: #b84155;
-    --cobalt: #4b4747;
-    --coral: #b84155;
+    --background: 216 6% 90%;
+    --foreground: 220 8% 15%;
+    --cyc: #c8cbcf;          /* cyclorama backdrop */
+    --paper: #e3e5e8;        /* page */
+    --paper-bright: #f1f2f4; /* raised surfaces */
+    --paper-muted: #d6d9dd;  /* recessed bands */
+    --ink: #222428;          /* graphite */
+    --ink-soft: #4f535a;
+    --muted-text: #565a61;
+    --line: #b6bac0;
+    --select: #3f62ad;       /* selection outline */
+    --accent: #3f62ad;
+    --cobalt: #222428;
+    --coral: #3f62ad;
   }
 
   * { @apply border-[var(--line)]; }
   html { scroll-behavior: smooth; }
-  body { background: var(--paper); color: var(--ink); font-family: Futura, 'Futura PT', 'Trebuchet MS', sans-serif; @apply antialiased; }
-  h1, h2, h3, h4, .font-display { font-family: Futura, 'Futura PT', 'Trebuchet MS', sans-serif; font-weight: 400; letter-spacing: .03em; }
-  p, input, button, a { font-family: 'Nunito Sans', Futura, sans-serif; }
-  ::-webkit-scrollbar { width: 7px; height: 7px; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Manrope Variable', system-ui, sans-serif; font-size: 17px; line-height: 1.6; @apply antialiased; }
+  h1, h2, h3, h4, .font-display { font-family: 'Bricolage Grotesque Variable', system-ui, sans-serif; font-weight: 500; letter-spacing: normal; line-height: 1.04; text-transform: none; }
+  p, input, button, a, select, textarea { font-family: inherit; }
+  :focus-visible { outline: 2px solid var(--select); outline-offset: 3px; }
+  ::selection { background: rgba(63,98,173,.28); color: var(--ink); }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
   ::-webkit-scrollbar-track { background: var(--paper); }
-  ::-webkit-scrollbar-thumb { background: #c2bdbd; }
+  ::-webkit-scrollbar-thumb { background: #9da1a8; }
   ::-webkit-scrollbar-thumb:hover { background: var(--ink); }
-  ::selection { background: rgba(184,65,85,.16); color: var(--ink); }
 }
 
 @layer components {
   .btn-primary { @apply inline-flex items-center justify-center gap-2 px-6 py-3 transition-colors; background: var(--ink); color: white; }
-  .btn-primary:hover { background: var(--accent); }
+  .btn-primary:hover { box-shadow: 0 0 0 2px var(--select); }
   .btn-ghost { @apply inline-flex items-center justify-center gap-2 px-6 py-3 transition-colors; border: 1px solid var(--ink); color: var(--ink); }
   .btn-ghost:hover { background: var(--ink); color: white; }
   .card-surface { background: var(--paper-bright); border: 1px solid var(--line); }
   .section-title { @apply text-3xl sm:text-4xl; color: var(--ink); }
   .tag { @apply inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-semibold uppercase; }
   .tag-free, .tag-premium, .tag-dark { background: transparent; color: var(--ink); border: 1px solid var(--line); }
-  .mono { font-family: 'Nunito Sans', sans-serif; }
+  .mono { font-family: inherit; font-variant-numeric: tabular-nums; }
   .article-copy { max-width: 46rem; color: var(--ink); }
   .article-copy p { margin-top: 1.25rem; color: var(--muted-text); font-size: 1.08rem; line-height: 1.85; }
   .article-copy h2 { margin-top: 3rem; color: var(--ink); font-size: clamp(1.45rem, 3vw, 2rem); line-height: 1.2; font-weight: 400; }
@@ -54,3 +60,12 @@
   .grid-bg { background-color: var(--paper-muted); }
   .scanline { background: transparent; }
 }
+
+
+/* A selected-object outline, used for hover and active states */
+.select-ring { transition: box-shadow .15s ease; }
+.select-ring:hover, .select-ring:focus-visible { box-shadow: 0 0 0 2px var(--select); outline: none; }
+.link-select { text-decoration: underline; text-decoration-color: var(--select); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+.link-select:hover { color: var(--ink-soft); }
+.wide { font-stretch: 100%; }
+.narrow { font-stretch: 75%; }

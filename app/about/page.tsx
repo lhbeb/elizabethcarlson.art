@@ -1,19 +1,41 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowUpRight } from 'lucide-react'
+import SupportBlock from '@/components/SupportBlock'
+import { BMC_URL, CONTACT_EMAIL } from '@/lib/site'
 
 export const metadata = {
-    title: 'About Metz Benedek',
-    description: 'Meet Metz Benedek, a Polish figurative artist whose fragmented portraits explore presence, identity, and perception.',
+    title: 'About | Elizabeth Ellen Carlson',
+    description: 'Elizabeth Ellen Carlson is a 3D artist and creative educator: hard-surface models, characters, environments and free 3D assets.',
 }
 
+const makes = [
+    'Hard-surface models and props',
+    'Stylized characters and environments',
+    'Materials, lighting and final renders',
+    'Turntables and short motion loops for TikTok, Reels and Shorts',
+    'Free downloadable 3D assets',
+    'Tutorials and behind-the-scenes breakdowns',
+]
+
 export default function AboutPage() {
-    return <main className="min-h-screen">
-        <section className="border-b border-[var(--line)] bg-[var(--ink)] text-white"><div className="mx-auto grid max-w-7xl items-center gap-10 px-6 pb-12 pt-40 sm:pb-16 sm:pt-44 md:grid-cols-[minmax(0,1fr)_minmax(220px,320px)] lg:gap-16 lg:px-8 lg:pb-20 lg:pt-48"><div><h1 className="max-w-3xl font-display text-3xl font-semibold leading-snug sm:text-4xl">About Metz Benedek.</h1><p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/70">Metz Benedek is a Polish figurative artist living and working in Jakarta, Indonesia. Working in oil, acrylic and pencil, he paints fragmented portraits and psychologically charged figures.</p></div><div className="relative mx-auto aspect-[3/4] w-full max-w-[320px] overflow-hidden border border-white/15"><Image src="/metzimg1.jpeg" alt="Metz Benedek working in the studio" fill priority sizes="(min-width: 768px) 320px, 80vw" className="object-cover object-center" /></div></div></section>
-        <div className="mx-auto max-w-5xl space-y-16 px-6 py-14 sm:py-20">
-            <section className="max-w-3xl text-lg leading-relaxed text-[var(--muted-text)]"><p>Metz paints figures and portraits that hover between presence and disappearance. Eyes, mouths, hands and areas of skin are rendered with close attention, while the rest of the body may remain unpainted, dissolve into the ground, or be interrupted by spare drawn marks.</p><p className="mt-5">Working primarily in oil, acrylic and pencil on wood panel, he uses repetition, doubling and cropped anatomy to unsettle a familiar face. Pale grounds, deep dark fields and isolated circles of red or yellow create quiet spaces in which identity feels layered, provisional and open to interpretation.</p></section>
-            <section className="grid gap-6 sm:grid-cols-2"><div className="relative aspect-[.82] overflow-hidden bg-[var(--paper-muted)]"><Image src="/metzimg1.jpeg" alt="Metz Benedek working in the studio" fill sizes="(min-width: 640px) 50vw, 100vw" className="object-cover object-center" /></div><div className="relative aspect-[.82] overflow-hidden bg-[var(--paper-muted)]"><Image src="/paul2.jpeg" alt="Metz Benedek smiling in the studio" fill sizes="(min-width: 640px) 50vw, 100vw" className="object-cover object-center" /></div></section>
-            <section className="flex flex-col items-start justify-between gap-5 border-t border-[var(--line)] pt-8 sm:flex-row sm:items-center"><h2 className="font-display text-2xl font-semibold">See the current work.</h2><Link href="/collections" className="inline-flex items-center gap-2 rounded-md bg-[var(--ink)] px-5 py-3 font-bold text-white hover:bg-[var(--cobalt)]">Visit the art shop <ArrowUpRight size={15} /></Link></section>
+    return <main className="px-6 pb-16 pt-36 sm:px-10 sm:pt-40">
+        <div className="mx-auto max-w-[1440px]">
+            <div className="grid gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end">
+                <div>
+                    <h1 className="text-[clamp(2.8rem,6vw,5.5rem)]">Hey, I’m Elizabeth</h1>
+                    <p className="mt-8 max-w-2xl text-xl leading-relaxed text-[var(--ink-soft)]">I’m a 3D artist and creative educator. I take ordinary ideas and turn them into scroll-stopping 3D work, and I teach other creators how to do the same.</p><a href={`mailto:${CONTACT_EMAIL}`} className="link-select mt-6 inline-block text-lg">{CONTACT_EMAIL}</a>
+                </div>
+                <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-[var(--paper-muted)]"><Image src="/elizabeth-carlson-artist.jpg" alt="Elizabeth Carlson working on a 3D character in her studio" fill priority sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" /></div>
+            </div>
+            <div className="mt-24 grid gap-14 border-t border-[var(--line)] pt-14 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+                <h2 className="text-[clamp(2rem,3.6vw,3.2rem)]">What I make</h2>
+                <ul className="grid gap-x-10 gap-y-4 text-lg sm:grid-cols-2">{makes.map(item => <li key={item} className="border-b border-[var(--line)] pb-4">{item}</li>)}</ul>
+            </div>
+            <div className="mt-24 grid gap-14 border-t border-[var(--line)] pt-14 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+                <h2 className="text-[clamp(2rem,3.6vw,3.2rem)]">Learn with me</h2>
+                <div><p className="max-w-2xl text-lg leading-relaxed text-[var(--muted-text)]">Book a 4-hour private Zoom session. We build an attention-grabbing 3D scene together, step by step, from the first idea to the finished render.</p><div className="mt-8 flex flex-wrap gap-3"><a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="select-ring inline-flex min-h-12 items-center rounded-full bg-[var(--ink)] px-6 font-semibold text-white">Ask about a session</a><Link href="/work" className="select-ring inline-flex min-h-12 items-center rounded-full border border-[var(--ink)] px-6 font-semibold">See the work</Link></div></div>
+            </div>
+            <div className="mt-24"><SupportBlock /></div>
         </div>
     </main>
 }

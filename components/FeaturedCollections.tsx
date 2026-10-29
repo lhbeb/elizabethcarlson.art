@@ -1,9 +1,17 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { getMetzShopProducts, isSoldOut, shouldOptimizeImage } from '@/lib/metzShop'
+import { getShopProducts, isSoldOut, shouldOptimizeImage } from '@/lib/shop'
 
+// Homepage strip of shop items; hidden when the shop is empty.
 export default async function FeaturedCollections() {
-    const products = (await getMetzShopProducts()).filter(product => !isSoldOut(product)).slice(0, 6)
+    const products = (await getShopProducts()).filter(product => !isSoldOut(product)).slice(0, 4)
+    if (!products.length) return null
 
-    return <section className="border-t border-[var(--line)] bg-[var(--paper-muted)] px-8 py-20 sm:px-12 sm:py-28 lg:px-16"><div className="mx-auto max-w-[1320px]"><div className="flex flex-col gap-7 sm:flex-row sm:items-end sm:justify-between"><div><p className="text-xs uppercase tracking-[.2em] text-[var(--ink-soft)]">Selected work</p><h2 className="mt-4 text-3xl sm:text-4xl">WORK FROM THE STUDIO</h2><p className="mt-5 max-w-xl text-base leading-7 text-[var(--muted-text)]">Paintings and prints built from fragmented faces, doubled figures, exposed ground and precise details of skin, eyes, mouths and hands.</p></div><Link href="/collections" className="inline-flex w-fit border-b border-[var(--ink)] pb-1 text-sm uppercase tracking-[.16em] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]">View collection</Link></div><div className="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">{products.map(product => <Link key={product.id} href={`/collections/${product.id}`} className="group block"><div className="relative aspect-[.82] overflow-hidden bg-white"><Image src={product.thumbnail_url || '/metz-art/long-distance.jpg'} alt={product.title} fill unoptimized={!shouldOptimizeImage(product.thumbnail_url)} sizes="(min-width: 1024px) 31vw, (min-width: 640px) 46vw, 100vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.025]" /></div><div className="mt-4 flex items-start justify-between gap-4"><h3 className="text-lg leading-tight">{product.title}</h3><span className="shrink-0 text-sm">£{Number(product.price).toFixed(2)}</span></div></Link>)}</div>{!products.length && <p className="mt-12 text-[var(--muted-text)]">Selected work is temporarily unavailable.</p>}<div className="mt-12 text-center"><Link href="/collections" className="inline-flex min-h-12 items-center justify-center bg-[var(--ink)] px-7 text-sm uppercase tracking-[.16em] text-white transition-colors hover:bg-[var(--accent)]">Explore the full collection</Link></div></div></section>
+    return <section className="px-6 pb-24 sm:px-10 sm:pb-32"><div className="mx-auto max-w-[1440px]">
+        <div className="flex items-end justify-between gap-6"><h2 className="text-[clamp(2rem,3.6vw,3.2rem)]">From the shop</h2><Link href="/collections" className="link-select text-lg">All items</Link></div>
+        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">{products.map(product => <Link key={product.id} href={`/collections/${product.id}`} className="select-ring group block rounded-xl">
+            <div className="relative aspect-square overflow-hidden rounded-xl bg-[var(--cyc)]">{product.thumbnail_url && <Image src={product.thumbnail_url} alt={product.title} fill unoptimized={!shouldOptimizeImage(product.thumbnail_url)} sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" className="object-cover" />}</div>
+            <div className="mt-4 flex items-start justify-between gap-4"><h3 className="text-lg leading-tight">{product.title}</h3>{Number(product.price) > 0 && <span className="shrink-0">${Number(product.price).toFixed(2)}</span>}</div>
+        </Link>)}</div>
+    </div></section>
 }

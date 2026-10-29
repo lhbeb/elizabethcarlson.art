@@ -54,12 +54,12 @@ const nextConfig = {
         return [
             {
                 source: '/bmc',
-                destination: 'https://buymeacoffee.com/csornaimetzbenedek',
+                destination: 'https://buymeacoffee.com/carlsonelizabeth',
                 permanent: false,
             },
             {
                 source: '/shop',
-                destination: 'https://buymeacoffee.com/csornaimetzbenedek',
+                destination: 'https://buymeacoffee.com/carlsonelizabeth',
                 permanent: false,
             },
         ]

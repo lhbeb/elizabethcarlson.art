@@ -17,7 +17,7 @@ export default function AdminPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="mb-10 flex items-start justify-between">
                 <div>
-                    <div className="flex items-center gap-2 text-[#2563eb] text-sm font-semibold mb-3 uppercase">
+                    <div className="flex items-center gap-2 text-[#2563eb] text-sm font-semibold mb-3">
                         <LayoutDashboard size={15} />
                         Admin Panel
                     </div>

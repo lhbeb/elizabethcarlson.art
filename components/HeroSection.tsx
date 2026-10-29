@@ -1,32 +1,26 @@
 'use client'
 
-import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
+import { BMC_URL } from '@/lib/site'
 
-const artworks = [
-    { src: '/metz-art/between-us-ii.webp', alt: 'Between Us II by Metz Benedek', position: 'center' },
-    { src: '/metz-art/hero-figure-lime.png', alt: 'Figurative painting with a lime-yellow motif by Metz Benedek', position: 'center' },
-    { src: '/metz-art/hero-figure-multiple.png', alt: 'Fragmented multiple-face painting by Metz Benedek', position: 'center' },
-]
+const ClayTurntable = dynamic(() => import('@/components/ClayTurntable'), { ssr: false })
 
+// The hero is a viewport: a live clay render on a grey cyclorama.
 export default function HeroSection() {
-    const [activeIndex, setActiveIndex] = useState(0)
-
-    useEffect(() => {
-        const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-        if (motionQuery.matches) return
-
-        const rotate = window.setTimeout(() => {
-            setActiveIndex(current => (current + 1) % artworks.length)
-        }, 9000)
-
-        return () => window.clearTimeout(rotate)
-    }, [activeIndex])
-
-    return <section aria-label="A rotating selection of artworks by Metz Benedek" className="relative h-[clamp(29rem,68vw,54rem)] min-h-[460px] overflow-hidden bg-[#161415]">
-        {artworks.map((artwork, index) => <Image key={artwork.src} src={artwork.src} alt={index === activeIndex ? artwork.alt : ''} fill priority={index === 0} sizes="100vw" className={`object-cover object-center transition-opacity duration-[1800ms] ease-in-out ${index === activeIndex ? 'opacity-100' : 'opacity-0'}`} />)}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" aria-hidden="true" />
-        <div className="absolute inset-x-8 bottom-10 sm:inset-x-12 sm:bottom-14 lg:inset-x-16 lg:bottom-16"><h1 className="max-w-4xl text-5xl leading-[.95] text-white drop-shadow-[0_2px_12px_rgba(0,0,0,.4)] sm:text-7xl lg:text-8xl">METZ BENEDEK</h1><p className="mt-4 text-sm uppercase tracking-[.18em] text-white drop-shadow-[0_1px_8px_rgba(0,0,0,.5)] sm:text-base">POLISH ARTIST · JAKARTA, INDONESIA</p></div>
+    return <section className="relative overflow-hidden bg-[radial-gradient(ellipse_at_62%_42%,#dfe1e4_0%,var(--cyc)_55%,#b4b8bd_100%)]">
+        <div className="mx-auto grid min-h-[min(100svh,980px)] max-w-[1440px] grid-rows-[1fr_auto] px-6 pb-10 pt-28 sm:px-10 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] lg:grid-rows-1 lg:items-end lg:pb-16 lg:pt-24">
+            <div className="relative z-10 order-2 lg:order-1 lg:pb-10">
+                <h1 className="max-w-[10ch] text-[clamp(2.8rem,5.6vw,5.4rem)]">Free 3D projects from an expert artist.</h1>
+                <p className="mt-6 max-w-lg text-base leading-[1.75] text-[var(--ink-soft)] sm:text-lg">Explore Elizabeth Carlson’s portfolio of hard-surface models, characters and environments, with detailed project breakdowns and free 3D resources.</p>
+                <div className="mt-8 flex flex-wrap items-center gap-3">
+                    <Link href="/work" className="select-ring inline-flex min-h-12 items-center rounded-full bg-[var(--ink)] px-6 font-semibold text-white">See the work</Link>
+                    <a href={BMC_URL} target="_blank" rel="noopener noreferrer" className="select-ring inline-flex min-h-12 items-center rounded-full border border-[var(--ink)] px-6 font-semibold">Support on Buy Me a Coffee</a>
+                </div>
+            </div>
+            <div className="relative order-1 min-h-[52vh] lg:order-2 lg:min-h-[80svh]">
+                <ClayTurntable className="absolute inset-0" />
+            </div>
+        </div>
     </section>
 }
-

@@ -63,8 +63,8 @@ module.exports = {
                 },
             },
             fontFamily: {
-                sans:  ['Space Grotesk', 'system-ui', 'sans-serif'],
-                mono:  ['JetBrains Mono', 'monospace'],
+                sans:  ['Instrument Sans Variable', 'system-ui', 'sans-serif'],
+                mono:  ['Instrument Sans Variable', 'system-ui', 'sans-serif'],
             },
             borderRadius: {
                 lg: "var(--radius)",
