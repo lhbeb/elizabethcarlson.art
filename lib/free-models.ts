@@ -7,6 +7,7 @@ export type FreeModel = {
     description: string[]
     format: string
     compatibility: string
+    license: string
     downloadUrl: string
     cover: string
     gallery: { src: string; alt: string }[]
@@ -19,10 +20,11 @@ export const freeModels: FreeModel[] = [
         summary: 'A free tactical helmet and outfit model for Unreal Engine and MetaHuman projects.',
         description: [
             'A production-minded soldier outfit study prepared as a free FBX download for artists, students and real-time projects.',
-            'Use the model as a starting point for look development, scene building, animation tests or your own material experiments. The gallery shows the topology and finished presentation views included with the project.',
+            'Use the model as a starting point for look development, scene building, animation tests or your own material experiments. The files are free for personal and commercial use. Download access is hosted through the Buy Me a Coffee extras page, and support is optional.',
         ],
         format: 'FBX',
         compatibility: 'Unreal Engine and MetaHuman workflows',
+        license: 'Free for personal and commercial use',
         downloadUrl: BMC_SHOP_URL,
         cover: '/free-models/soldier-helmet-outfit/render-branding.webp',
         gallery: [
@@ -40,10 +42,11 @@ export const freeModels: FreeModel[] = [
         summary: 'A free rigged Iron Man character study for posing, animation and real-time workflows.',
         description: [
             'A free Iron Man character study presented through posed and rigged views. Explore the armor, controls and presentation work across the gallery.',
-            'Use it as a reference for character presentation, posing and animation workflows. Download access is provided through the Buy Me a Coffee extras page.',
+            'Use it as a reference for character presentation, posing and animation workflows. The files are free for personal and commercial use. Download access is hosted through the Buy Me a Coffee extras page, and support is optional.',
         ],
         format: '3D model',
         compatibility: 'Rigged character study',
+        license: 'Free for personal and commercial use',
         downloadUrl: BMC_SHOP_URL,
         cover: '/free-models/iron-man/iron-man-three-quarter.webp',
         gallery: [

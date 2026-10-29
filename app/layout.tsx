@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     metadataBase: new URL(SITE_URL),
     title,
     description: SITE_DESCRIPTION,
-    keywords: 'Elizabeth Carlson, 3D artist, 3D renders, 3D modeling, motion design, free 3D assets, 3D tutorials',
+    keywords: 'Elizabeth Carlson, 3D artist, hard-surface sci-fi, environment modeling, character modeling, 3DS Max, Maya, Blender, ZBrush, Wrap 3.0, Substance Painter, Unreal Engine, free 3D models, 3D asset downloads',
     alternates: { canonical: '/' },
     icons: { icon: '/favicon.png', shortcut: '/favicon.png', apple: '/favicon.png' },
     openGraph: { title, description: SITE_DESCRIPTION, url: '/', siteName: SITE_NAME, type: 'website' },

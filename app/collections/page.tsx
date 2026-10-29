@@ -7,7 +7,7 @@ export const revalidate = 60
 
 export const metadata: Metadata = {
     title: 'Shop | Elizabeth Carlson',
-    description: '3D renders, motion pieces and downloadable 3D asset packs by Elizabeth Carlson.',
+    description: '3D project renders, process notes and downloadable 3D asset packs by Elizabeth Carlson.',
 }
 
 export default async function CollectionsPage() {
@@ -17,7 +17,7 @@ export default async function CollectionsPage() {
         <div className="max-w-2xl">
             <p className="text-xs text-[var(--ink-soft)]">Elizabeth Carlson</p>
             <h1 className="mt-5 text-4xl sm:text-5xl">Shop</h1>
-            <p className="mt-6 max-w-xl text-base leading-7 text-[var(--muted-text)]">3D renders, motion pieces and downloadable 3D asset packs, made in the studio.</p>
+            <p className="mt-6 max-w-xl text-base leading-7 text-[var(--muted-text)]">3D project renders, process notes and downloadable 3D asset packs, made in the studio.</p>
         </div>
         <div className="mt-16 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
             {products.map(product => {

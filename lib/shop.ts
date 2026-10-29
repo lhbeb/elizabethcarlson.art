@@ -8,7 +8,7 @@ function isOwnListing(product: Product) {
     if (!product.file_url) return true
     try {
         const host = new URL(product.file_url).hostname
-        return host.endsWith('.supabase.co') || host.endsWith('carlsonelizabeth.me')
+        return host.endsWith('.supabase.co') || host.endsWith('carlsonelizabeth.art')
     } catch {
         return false
     }
